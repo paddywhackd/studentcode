@@ -1,0 +1,158 @@
+[33mcommit 7f8797214f8b72e43d7044b286d8ab642990f081[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 2c7b85b 41f9952
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Wed May 18 08:58:57 2022 -0400
+
+    Merge branch 'main' of https://git.techelevator.com/campuses/cincy/may-2022/java/instructor-code
+
+[33mcommit 41f995227af1492b420c7243def8a8f4d61dff50[m[33m ([m[1;31mupstream/main[m[33m)[m
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Wed May 18 08:25:35 2022 -0400
+
+    M1D3 lecture and exercises
+
+[33mcommit 2c7b85bcc3a56752c479b5a633a8b8f9cbbc28a1[m
+Merge: 25aa555 da85c58
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Wed May 18 08:04:17 2022 -0400
+
+    Merge https://git.techelevator.com/campuses/cincy/may-2022/java/instructor-code
+
+[33mcommit da85c587321d2a3c2c56e4bbf94d1b9aca70d33b[m
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Tue May 17 13:10:50 2022 -0400
+
+    M1D2 lecture & M1D3 tutorial
+
+[33mcommit 25aa5558c77cd5c7116a23132f51f0810b6adbfd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: abde31c 74ddc9f
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Tue May 17 09:00:01 2022 -0400
+
+    Merge https://git.techelevator.com/campuses/cincy/may-2022/java/instructor-code
+
+[33mcommit 74ddc9f5b093ef2a7906b0f0e2f4a4d2ce7ef8e0[m
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Tue May 17 08:25:28 2022 -0400
+
+    M1D2 lecture & exercises
+
+[33mcommit abde31c12b4a30c215cf7b7ae72a915bb7d8871c[m
+Merge: 3d36a5c 158c1cc
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:40:48 2022 -0400
+
+    Merge branch 'main' of https://git.techelevator.com/campuses/cincy/may-2022/java/instructor-code
+
+[33mcommit 3d36a5c1842f137a014d83c9e9d57176c9f70ab1[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:36:07 2022 -0400
+
+    submitting rename file task
+
+[33mcommit 884071d46628e0a7190715eab9b0f38dd002712c[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:34:37 2022 -0400
+
+    submitting move file task
+
+[33mcommit c9105486969abb8abb9b78b1a96e025df4b8f567[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:33:02 2022 -0400
+
+    submitting copy file task
+
+[33mcommit a02a65d28d69702a9e1541ed8db8c21b5c2fa0f3[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:32:04 2022 -0400
+
+    submitting list subdirectory contents task
+
+[33mcommit c84c8a08f231b7bcbd806cc27722b4e2877701d8[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:29:13 2022 -0400
+
+    submitting list directory contents task
+
+[33mcommit 28cd00a88dd1fd0d00538abb1b2e4a358f1dfa34[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:28:03 2022 -0400
+
+    submitting remove directoryt ask
+
+[33mcommit 792a87cfc2faa846f02cd4550f9380d59be8dd3c[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:27:03 2022 -0400
+
+    submitting change directory root task
+
+[33mcommit 65c258b1a55956c0d7c20ecaadbb8212324e0a04[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:25:18 2022 -0400
+
+    submitting change directory up
+
+[33mcommit 71a90e9abc1816c302a31392f4f5558828594292[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:23:35 2022 -0400
+
+    submitting change directory
+
+[33mcommit c6a30f304c51f41b50e3f2eb54b8fa48eaaed81d[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:22:15 2022 -0400
+
+    submitting create directory home
+
+[33mcommit a16faa186fa42ad771c76e6f2ba5dfc2e8c25da2[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 22:20:02 2022 -0400
+
+    submitting create direcory task
+
+[33mcommit 7b92e598ff0fed84c8118df782c3c31fcedcb669[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 18:51:09 2022 -0400
+
+    module pt 1 output file
+
+[33mcommit 158c1cccf053c68af954d09de6acd4aec05b83db[m
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Mon May 16 16:58:58 2022 -0400
+
+    M2D2 tutorial
+
+[33mcommit c6334916403cb8d8aa31e11db598a0c80c76d59a[m
+Author: Patrick Morris <pnmorris513@gmail.com>
+Date:   Mon May 16 16:14:16 2022 -0400
+
+    my-frist-commit
+
+[33mcommit ed75a730d717f31d4376b0b65f8f5344d01653a7[m
+Merge: a36c72d b58244c
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Mon May 16 19:50:05 2022 +0000
+
+    Merge branch 'stage-M1D1' into 'main'
+    
+    M1D1 lecture & exercises
+    
+    See merge request campuses/cincy/may-2022/java/instructor-code!1
+
+[33mcommit b58244cb4594e62cc65471d6620149ed7c72a126[m
+Author: mike levy <michael.levy@techelevator.com>
+Date:   Sun May 15 17:21:07 2022 -0400
+
+    M1D1 lecture & exercises
+
+[33mcommit a36c72dc0c9808b92de567751fafe113c60e4bbf[m
+Author: Dave Hoy <david.hoy@techelevator.com>
+Date:   Tue May 10 08:38:48 2022 -0400
+
+    Added README.md. Updated setup.sh
+
+[33mcommit 94d03420625268ab75b28d3df10c6ff3ef8a0e09[m
+Author: Josh Tucholski <josh@techelevator.com>
+Date:   Wed May 4 12:58:01 2022 -0400
+
+    Initial commit.
