@@ -23,8 +23,8 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
-    }
+        return portNumbers[portNumbers.length -1];
+
 
     /*
     4. Return the first element of the array from the parameters
@@ -149,7 +149,7 @@ public class Lecture {
         int sum = 0;
 
         //     Start;       Keep going while       Increment by;
-        for (int i = 0; i < arrayToLoopThrough.length; i = i + 1) {
+        for (int i = 0; i < arrayToLoopThrough.length; i = i + 2) {
             sum = sum + arrayToLoopThrough[i];
         }
 

@@ -53,7 +53,7 @@ public class Exercise02_BoardingGate {
 
     Examples:
     getNumberOfFullRows([false, false, false, true, true, true]) → 1
-    getNumberOfFullRows([true, true, true, true, true, true]) → 2
+    getNumberOfFullRows([true, true, true, true, true, true]) → 0
     getNumberOfFullRows([false, true, true, false, true, true]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
