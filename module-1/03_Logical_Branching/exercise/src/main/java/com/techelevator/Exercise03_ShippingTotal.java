@@ -68,18 +68,7 @@ public class Exercise03_ShippingTotal {
     calculateShippingTotal(45, 0.2) ➔ 19.0
      */
     public double calculateShippingTotal(int weightPounds, double discountPercentage) {
-   /*    double under40Total = (1 - discountPercentage) * (weightPounds * UP_TO_40_LB_RATE);
-        double over40Total = (1 - discountPercentage) * (weightPounds * OVER_40_LB_RATE); */
-        if (discountPercentage > 0) {
 
-            if (weightPounds <= MAX_WEIGHT_POUNDS) {
-                return (weightPounds * UP_TO_40_LB_RATE) * (1 - discountPercentage);
-            } else if (weightPounds > MAX_WEIGHT_POUNDS) {
-                return (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + ((weightPounds - MAX_WEIGHT_POUNDS) * OVER_40_LB_RATE) * (1 - discountPercentage);
-
-            }
-            if (weightPounds > OVER_40_LB_RATE) ;
-        }
-        return (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + OVER_40_LB_RATE);
+        return discountPercentage;
     }
 }
