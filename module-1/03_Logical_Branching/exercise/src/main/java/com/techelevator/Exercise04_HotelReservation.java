@@ -24,7 +24,12 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
-        return 0;
+        if (numberOfNights >= 3) {
+            return (numberOfNights * DISCOUNT_RATE);
+        } else
+            return (numberOfNights * DAILY_RATE);
+
+
     }
 
     /*
