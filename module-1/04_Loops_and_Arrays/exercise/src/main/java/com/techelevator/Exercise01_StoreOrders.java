@@ -83,14 +83,15 @@ public class Exercise01_StoreOrders {
      */
     public int getCheesePizzaRevenue(int[] orders) {
         int makinThatCheese = 0;
+
         for (int i = 0; i < orders.length; i++) {
             if (orders[i] == SMALL_CHEESE)
-                makinThatCheese = 8 + makinThatCheese;
-            else if (orders[i] == MEDIUM_CHEESE)
-            makinThatCheese = 11 + makinThatCheese;
+                makinThatCheese = 8 + makinThatCheese; //i understand 8 is a magic number but not sure how else to define
+             if (orders[i] == MEDIUM_CHEESE)
+            makinThatCheese = 11 + makinThatCheese; // " "
 
-              else if (orders[i] == LARGE_CHEESE)
-            makinThatCheese = 14 + makinThatCheese;
+               if (orders[i] == LARGE_CHEESE)
+            makinThatCheese = 14 + makinThatCheese; // " "
 
         }
         return makinThatCheese;

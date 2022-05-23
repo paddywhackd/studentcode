@@ -41,6 +41,7 @@ public class Exercise04_Cards {
     discardFirstCard(["3-H", "7-H", "5-H", "8-H", "6-H"]) → ["7-H", "5-H", "8-H", "6-H"]
     discardFirstCard(["1-C", "1-D", "1-H", "1-S", "2-C"]) → ["1-D", "1-H", "1-S", "2-C"]
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
+
      */
     public String[] discardFirstCard(String[] hand) {
         return new String[] {

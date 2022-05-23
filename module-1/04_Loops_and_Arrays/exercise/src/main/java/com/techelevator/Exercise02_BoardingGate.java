@@ -47,12 +47,18 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([false, false, false, false, false, false]) → 0
     getAvailableSeatCount([true, true, true, false]) → 3
     getAvailableSeatCount([]) → 0
+
+     they are asking to run through each seat in a row and return whether or not that seat is available using a boolean.
+     because my availableSeatCount is a whole number it'll be represented by an integer.
+     seatingChart would relate to the total amount of seats(unkown) hence why i need to express seatingChart.length
+     starting at index spot 0, check to see if every seat is available going up by 1 after returning a true or false
+     depending on whether or not that seat is available.
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
         int musicalChairs = 0;
         for (int i = 0; i < seatingChart.length; i++) {
             if (seatingChart[i])
-                ++musicalChairs;
+                musicalChairs++;
         }
 
         return musicalChairs;
