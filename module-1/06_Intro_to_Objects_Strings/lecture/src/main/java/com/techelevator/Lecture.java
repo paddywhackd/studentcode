@@ -22,6 +22,10 @@ public class Lecture {
 		System.out.println("******************************");
 		System.out.println();
 
+		String myString = "hello world";
+		System.out.println(myString.length());
+		System.out.println(myString.substring(6));
+		System.out.println(myString.substring(6, 7));
 
 		/* Other commonly used methods:
 		 *
