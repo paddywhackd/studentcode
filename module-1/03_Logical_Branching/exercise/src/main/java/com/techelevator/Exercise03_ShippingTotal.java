@@ -22,11 +22,29 @@ public class Exercise03_ShippingTotal {
     calculateShippingTotal(45) ➔ 23.75
      */
     public double calculateShippingTotal(int weightPounds) {
-        if (weightPounds <= MAX_WEIGHT_POUNDS) {
-            return (weightPounds * UP_TO_40_LB_RATE);
-        } else {
-            return (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + ((weightPounds - MAX_WEIGHT_POUNDS) * OVER_40_LB_RATE);
+//        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+//            return (weightPounds * UP_TO_40_LB_RATE);
+//        } else {
+//            return (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + ((weightPounds - MAX_WEIGHT_POUNDS) * OVER_40_LB_RATE);
+//
+        double base_charge = 0;
+        double  extra_charge = 0;
+
+
+//        base_charge = ((weightPounds > MAX_WEIGHT_POUNDS) MAX_WEIGHT_POUNDS: weightPounds) *UP_TO_40_LB_RATE;
+        if (weightPounds > MAX_WEIGHT_POUNDS){
+            //weight exceeds our max
+            base_charge = MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE;
+
+            //find excess weight
+            double excess_weight = weightPounds - MAX_WEIGHT_POUNDS;
+            extra_charge = excess_weight * OVER_40_LB_RATE;
+        }else {
+            // we are in the weight range
+            base_charge = weightPounds * UP_TO_40_LB_RATE;
         }
+
+        return base_charge + extra_charge;
     }
 
     /*
@@ -69,6 +87,11 @@ public class Exercise03_ShippingTotal {
      */
     public double calculateShippingTotal(int weightPounds, double discountPercentage) {
 
-        return discountPercentage;
+//        return calculateShippingTotal(weightPounds) * (1-discountPercentage);
+        return calculateShippingTotal(weightPounds) - (calculateShippingTotal(weightPounds) * discountPercentage);
+
     }
+
+
+
 }

@@ -46,8 +46,35 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, 1) ➔ 279.97
     calculateStayTotal(3, 2) ➔ 289.97
      */
+
+    /**
+     * step
+     * find week day nights = total - weekend nights
+     * 2 find weekend nights = weeknights
+     * 3 calc weekday charge = weekdaynights * weekday_charge_rate
+     * 4 calc weeknight charge = weeknights * weeknight_charge_rate
+     * 5 calc total charge = weeday charge + weeknight charge
+     * 5 return total
+     * @param numOfTotalNights
+     * @param numOfWeekendNights
+     * @return
+     */
     public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights) {
-        return 0;
+
+        double total = 0;
+//        * find week day nights = total - weekend nights
+        int weekdaynights = numOfTotalNights - numOfWeekendNights;
+//         * 2 find weekend nights = weeknights
+
+//                * 3 calc weekday charge = weekdaynights * weekday_charge_rate
+        double weekday_charge = weekdaynights *DAILY_RATE;
+//                * 4 calc weeknight charge = weeknights * weeknight_charge_rate
+        double weeknight_charge = numOfWeekendNights * DISCOUNT_RATE;
+//                * 5 calc total charge = weeday charge + weeknight charge
+        total = weekday_charge + weeknight_charge;
+//                * 5 return total
+
+        return total;
     }
 
     /*

@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Exercises {
+public class Exercises<result> {
 	public static void main(String[] args) {
 
 	}
@@ -49,7 +49,8 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+
+		return out.substring(0, 2) + word + out.substring(2);
 	}
 
 	/*
@@ -60,9 +61,10 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
-	}
 
+		String triplets = str.substring(str.length() - 2);
+		return triplets + triplets + triplets;
+	}
 	/*
 	 Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the
 	 string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty string ""
@@ -72,8 +74,11 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		if(str.length() <=1) {
+		return str;
 	}
+			return str.substring(0,2);
+		}
 
 	/*
 	 Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
@@ -82,7 +87,8 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+
+		return str.substring(0, str.length() /2);
 	}
 
 	/*
@@ -93,7 +99,7 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		return str.substring(1, str.length() -1);
 	}
 
 	/*
@@ -105,7 +111,11 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		if (a.length() > b.length()) {
+			return b + a + b;
+		} else {
+			return a + b + a;
+		}
 	}
 
 	/*
@@ -116,7 +126,8 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+
+		return a.substring(1) + b.substring(1);
 	}
 
 	/*
@@ -127,7 +138,8 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+
+		return str.substring(2) + str.substring(0, 2);
 	}
 
 	/*
@@ -138,6 +150,7 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
+		//this one is throwing me through a ...Loop.. get it? cant figure out the syntax
 		return null;
 	}
 
@@ -149,9 +162,11 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		if (front) {
+			return str.substring(0, 1);
+		}
+		return str.substring(str.length() - 1);
 	}
-
 	/*
 	 Given a string, return a version without both the first and last char of the string. The string
 	 may be any length, including 0.
@@ -160,9 +175,11 @@ public class Exercises {
 	 withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
-		return null;
+		if (str.length() < 3) {
+			return "";
+		}
+		return str.substring(1, str.length() - 1);
 	}
-
 	/*
 	 Given a string of even length, return a string made of the middle two chars, so the string "string"
 	 yields "ri". The string length will be at least 2.
@@ -171,7 +188,9 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		int monkeyInTheMiddle = str.length()/2;
+
+		return str.substring(monkeyInTheMiddle -1, monkeyInTheMiddle+1);
 	}
 
 	/*
@@ -181,6 +200,8 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
+
+
 		return false;
 	}
 
@@ -192,7 +213,8 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		//someone walked me through this one but i still dont get how i arrived at the answer
+		return str.substring(0, n) + str.substring(str.length() -n, str.length());
 	}
 
 	/*
