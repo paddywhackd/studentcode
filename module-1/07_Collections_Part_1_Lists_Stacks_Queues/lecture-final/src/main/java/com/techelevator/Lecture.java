@@ -97,7 +97,7 @@ public class Lecture {
 			System.out.println(myInts.get(index));
 		}
 
-		System.out.println("####################");
+		System.out.println("####################")
 		System.out.println("Lists can be reversed too");
 		System.out.println("####################");
 

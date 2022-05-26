@@ -21,7 +21,7 @@ public class Exercises {
     public List<String> array2List(String[] stringArray) {
         List<String> array2List = new ArrayList<>();
         for (String yaKnowCauseApplesAreLeft : stringArray) {
-array2List.add(yaKnowCauseApplesAreLeft);
+            array2List.add(yaKnowCauseApplesAreLeft);
         }
         return array2List;
     }
@@ -33,7 +33,9 @@ array2List.add(yaKnowCauseApplesAreLeft);
      list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
      */
     public String[] list2Array(List<String> stringList) {
-        return null;
+        String[] containedinList = stringList.toArray(new String[stringList.size()]);
+        return containedinList;
+
     }
 
     /*
@@ -44,7 +46,13 @@ array2List.add(yaKnowCauseApplesAreLeft);
      no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
      */
     public List<String> no4LetterWords(String[] stringArray) {
-        return null;
+        List<String> listEmOut = new ArrayList<>();
+        for (String transportation : stringArray) {
+            if(transportation.length() != 4) {
+                listEmOut.add(transportation);
+            }
+        }
+        return listEmOut;
     }
 
     /*
@@ -54,9 +62,13 @@ array2List.add(yaKnowCauseApplesAreLeft);
      arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
      */
     public List<Double> arrayInt2ListDouble(int[] intArray) {
-        return null;
-    }
+        List<Double> numbersAreHard = new ArrayList<>();
+        for (int i = 0; i < intArray.length; i++) {
+            numbersAreHard.add(intArray[i] / 2.0);
+        }
+        return numbersAreHard;
 
+    }
     /*
      Given a List of Integers, return the largest value.
      findLargest( [11, 200, 43, 84, 9917, 4321, 1, 33333, 8997] ) -> 33333
@@ -64,7 +76,17 @@ array2List.add(yaKnowCauseApplesAreLeft);
      findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
      */
     public Integer findLargest(List<Integer> integerList) {
-        return null;
+       int butICanCountToAMillion = integerList.get(0);
+
+       for ( int i = 0; i < integerList.size(); i++) {
+
+           if ( integerList.get(i) > butICanCountToAMillion) {
+
+           butICanCountToAMillion = integerList.get(i);
+       }
+       }
+
+        return butICanCountToAMillion;
     }
 
     /*
