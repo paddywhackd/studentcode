@@ -1,9 +1,12 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Exercises {
+
 
 	/*
 	 * Given the name of an animal, return the name of a group of that animal
@@ -34,8 +37,28 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+
+		Map<String, String> animalGroupName = new HashMap<String, String>();
+
+		//String mouseIsMeece = animalName.toLowerCase();
+		animalGroupName.put("rhino", "Crash");
+		animalGroupName.put("giraffe", "Tower");
+		animalGroupName.put("elephant", "Herd");
+		animalGroupName.put("lion", "Pride");
+		animalGroupName.put("crow", "Murder");
+		animalGroupName.put("pigeon", "Kit");
+		animalGroupName.put("flamingo", "Pat");
+		animalGroupName.put("deer", "Herd");
+		animalGroupName.put("dog", "Pack");
+		animalGroupName.put("crocodile", "Float");
+
+		if (animalName == null || animalGroupName.get(animalName.toLowerCase()) == null) {
+			return "unknown";
+		} else {
+			return animalGroupName.get(animalName.toLowerCase());
+		}
 	}
+
 
 	/*
 	 * Given a String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -60,8 +83,24 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		Map<String, String> youGetACarAndYouGetACar = new HashMap<>();
+
+		youGetACarAndYouGetACar.put("KITCHEN4001", "0.20");
+		youGetACarAndYouGetACar.put("GARAGE1070", "0.15");
+		youGetACarAndYouGetACar.put("LIVINGROOM", "0.10");
+		youGetACarAndYouGetACar.put("KITCHEN6073", "0.40");
+		youGetACarAndYouGetACar.put("BEDROOM3434", "0.60");
+		youGetACarAndYouGetACar.put("BATH0073", "0.15");
+
+		if (itemNumber == null) {
+
+			return 0.00;
+		} else if (youGetACarAndYouGetACar.containsKey(itemNumber.toUpperCase())) {
+			return Double.parseDouble((youGetACarAndYouGetACar.get (itemNumber.toUpperCase())));
+		}
+		return 0.00;
 	}
+
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -73,8 +112,15 @@ public class Exercises {
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
 	 *
 	 */
-	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+	public Map<String, Integer> robPeterToPayPaul (Map <String, Integer> peterPaul) {
+		int peterBeRich = peterPaul.get("Peter");
+		int paulBeBroke = peterPaul.get("Paul");
+		if (paulBeBroke < 1000 && peterBeRich> 0) {
+			int moneyStraightStolen = peterBeRich / 2;
+			peterPaul.put("Peter", peterBeRich - moneyStraightStolen);
+			peterPaul.put("Paul", paulBeBroke + moneyStraightStolen);
+		}
+		return peterPaul;
 	}
 
 	/*
@@ -87,7 +133,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int peterBoughtAPlane = peterPaul.get("Peter");
+		int paulLovesBigLots = peterPaul.get("Paul");
+
+		if (peterBoughtAPlane >= 5000 && paulLovesBigLots >= 10000) {
+			int petePuttinUp = peterBoughtAPlane / 4;
+			int paulPuttinUp = paulLovesBigLots / 4;
+
+			peterPaul.put("Peter", peterPaul.get("Peter") - petePuttinUp);
+			peterPaul.put("Paul", peterPaul.get("Paul") - paulPuttinUp);
+			peterPaul.put("PeterPaulPartnership", petePuttinUp + paulPuttinUp);
+		}
+		return peterPaul;
 	}
 
 	/*
@@ -99,7 +156,13 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map <String, String> wrappingAround = new HashMap<>();
+
+		for (String alpha : words) {
+			wrappingAround.put(alpha.charAt(0) + "", alpha.charAt(alpha.length() -1) + "");
+		}
+
+		return wrappingAround;
 	}
 
 	/*
