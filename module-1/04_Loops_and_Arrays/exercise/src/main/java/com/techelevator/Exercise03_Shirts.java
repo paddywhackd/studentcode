@@ -41,7 +41,11 @@ public class Exercise03_Shirts {
     buildBulkOrder(0) → []
      */
     public char[] buildBulkOrder(int numberOfShirts) { 
-        return new char[] {};    
+      for (int index = 0; index < numberOfShirts; index++) {
+
+      }
+
+        return new char[] {};
     }
 
     /*
@@ -59,8 +63,9 @@ public class Exercise03_Shirts {
      */
     public boolean placeRequest(char[] order) {
         for (int i =0; i < order.length; i++) {
-            if (order[i] == 'S');
-            return true;
+            if (order[i] == 'S')
+                return true;
+
         }
 
         return false; 
