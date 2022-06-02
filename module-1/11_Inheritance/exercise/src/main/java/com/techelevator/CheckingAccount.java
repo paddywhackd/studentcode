@@ -26,5 +26,5 @@ public class CheckingAccount extends BankAccount {
             checkingAccountBalance = super.withdraw(amountToWithdraw);
         } return checkingAccountBalance;
     }
-    
+
 }

@@ -7,6 +7,7 @@ public class CheckingAccount extends BankAccount {
     }
 
     public CheckingAccount(String accountHolder, String accountNumber) {
+
         super(accountHolder, accountNumber);
     }
 

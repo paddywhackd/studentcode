@@ -4,6 +4,9 @@ public class OldMacdonald {
 	public static void main(String[] args) {
 
 
+		Chicken chicken = new Chicken();
+		playVerse((chicken.getName(), chicken.getSound()));
+
 	}
 
 	public static void playVerse(String name, String sound) {
