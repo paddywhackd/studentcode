@@ -61,7 +61,7 @@ public class Tutorial {
         }
 
         // Re-assemble the sentence with a new delimiter
-        String dashSentence = String.join("-->", words);
+        String dashSentence = String.join("- ", words);
         System.out.println(dashSentence);
 
         // Print the initial sentence. Notice it has not changed.

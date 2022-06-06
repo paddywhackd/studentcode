@@ -11,7 +11,7 @@ public class Clock {
     alarmClock(5, false) → "7:00"
     alarmClock(0, false) → "10:00"
     */
-    public String alarmClock(int day, boolean vacation) {
+    public static String alarmClock(int day, boolean vacation) {
         boolean isWeekend = day == 0 || day == 6;
         if (vacation) {
             return isWeekend ? "off" : "10:00";

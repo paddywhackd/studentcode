@@ -9,7 +9,7 @@ public class NonStart {
      GetPartialString("java", "code") → "avaode"
      GetPartialString("shotl", "java") → "hotlava"
      */
-    public String getPartialString(String a, String b) {
+    public static String getPartialString(String a, String b) {
         if (a == null) {
             a = "";
         }
