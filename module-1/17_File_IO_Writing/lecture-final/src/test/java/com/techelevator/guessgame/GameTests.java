@@ -1,6 +1,5 @@
 package com.techelevator.guessgame;
 
-import com.techelevator.guesgame.Game;
 import org.junit.Assert;
 import org.junit.Test;
 

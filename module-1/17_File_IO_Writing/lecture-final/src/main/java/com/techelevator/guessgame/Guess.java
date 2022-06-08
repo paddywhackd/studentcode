@@ -1,6 +1,4 @@
-package com.techelevator.guesgame;
-
-import java.util.Scanner;
+package com.techelevator.guessgame;
 
 public class Guess {
     public static void main(String[] args) {

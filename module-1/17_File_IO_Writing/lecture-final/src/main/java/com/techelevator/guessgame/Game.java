@@ -1,4 +1,4 @@
-package com.techelevator.guesgame;
+package com.techelevator.guessgame;
 
 public class Game {
 
