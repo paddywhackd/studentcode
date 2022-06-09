@@ -9,10 +9,13 @@ public class FindAndReplace {
 
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
+
         System.out.println("What is the word?");
         String searchWord = userInput.nextLine();
+
         System.out.println("What are you replacing?");
         String replaceWord = userInput.nextLine();
+
         System.out.println("What is the source File?");
         String sourceFile = userInput.nextLine();
         File inputSourceFile = new File(sourceFile);
@@ -31,7 +34,4 @@ public class FindAndReplace {
             System.out.println("Please try again.");
         }
     }
-
-
-
 }
