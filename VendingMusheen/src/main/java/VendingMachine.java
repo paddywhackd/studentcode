@@ -16,8 +16,9 @@ public class VendingMachine {
         System.out.println("                                               |_______________________|");
         System.out.println("                                               ||                     ||");
 
-        Scanner userInput = new Scanner(System.in);
         System.out.println("                                     I don't have all day, make a decision already..");
-        userInput.nextLine();
+        Scanner mainMenu = new Scanner(System.in);
+        System.out.println();
+        mainMenu.nextLine();
     }
 }
