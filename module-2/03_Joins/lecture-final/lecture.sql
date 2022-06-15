@@ -135,7 +135,15 @@ ORDER BY place_name;
 -- After creating the MovieDB database and running the setup script, make sure it is selected in pgAdmin and confirm it is working correctly by writing queries to retrieve...
 
 -- The names of all the movie genres
-
+SELECT genre_name FROM genre;
 
 -- The titles of all the Comedy movies
-
+SELECT
+	title
+FROM
+	movie AS m
+	JOIN movie_genre AS mg ON m.movie_id = mg.movie_id
+	JOIN genre AS g ON g.genre_id = mg.genre_id
+WHERE
+	genre_name = 'Comedy';
+	
