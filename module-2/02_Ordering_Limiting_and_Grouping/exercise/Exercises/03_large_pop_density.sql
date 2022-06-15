@@ -2,4 +2,4 @@
 -- Population density is expressed as people per square kilometer. In other words, population divided by area.
 -- Order the results by population density, highest number first.
 -- (9 rows)
-
+select city_name, population/area as population_density, population, area from city where population/area > 5000 group by population_density, city_name, population, area order by population_density desc;
