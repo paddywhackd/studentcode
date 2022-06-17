@@ -1,12 +1,11 @@
 -- 14. The names of actors who've appeared in the movies in the "Back to the Future Collection" (28 rows)
 
 SELECT 
-	person_name
+	Distinct person_name
 FROM
-	collection as c
-	JOIN movie as m ON c.collection_id = m.collection_id
-	JOIN person as p ON p.person_id = m.director_id
+	person as p
+	JOIN movie_actor as ma ON p.person_id = ma.actor_id
+	JOIN movie as m ON ma.movie_id = m.movie_id
+	join collection as c on m.collection_id = c.collection_id
 where
-	collection_name like 'Star Wars%'
-order by 
-	release_date desc;
+	collection_name = 'Back to the Future Collection';
