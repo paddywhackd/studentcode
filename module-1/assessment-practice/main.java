@@ -1,21 +1,22 @@
 
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 public class main {
 
 
 
 
-        public class Module1As {
-
-            public static void main(String[] args) {
+    public static void main(String[] args) {
 
 
-                HotelReservation hotelReservation = new HotelReservation();
+                HotelReservation hotelReservation = new HotelReservation("Patrick", 1);
+                Scanner fileScanner = new Scanner("HotelReservation.csv");
+                String nextLine = fileScanner.nextLine();
 
 
             }
         }
 
-    }
-}
+
+

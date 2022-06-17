@@ -41,14 +41,21 @@ public class HotelReservation {
         }
 
         public BigDecimal finalizedGrandTotal(boolean requiresCleaning, boolean usedMiniBar) {
-            BigDecimal grandTotal = null;
+            // BigDecimal grandTotal = null;
+            //You don't want this set to null.
+            BigDecimal grandTotal = BigDecimal.ZERO;
             BigDecimal cleaningFee = new BigDecimal(34.99);
             BigDecimal miniBarFee = new BigDecimal(12.99);
+            BigDecimal cleaningFeeFactor = new BigDecimal("2");
 
-            return grandTotal;
+            if (requiresCleaning && usedMiniBar) {
+                grandTotal = cleaningFee
+                        .multiply(cleaningFee)
+                        .add(miniBarFee); // (cleaning fee*) + miniBarFee = grandTotol
+            }
+
+                return grandTotal;
 
 
         }
-
-    }
 }
