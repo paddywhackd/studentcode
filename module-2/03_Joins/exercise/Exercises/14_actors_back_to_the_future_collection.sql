@@ -1,7 +1,7 @@
 -- 14. The names of actors who've appeared in the movies in the "Back to the Future Collection" (28 rows)
 
 SELECT 
-	title
+	person_name
 FROM
 	collection as c
 	JOIN movie as m ON c.collection_id = m.collection_id
