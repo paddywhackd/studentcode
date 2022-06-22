@@ -70,16 +70,16 @@ VALUES
 ('Return Your book day', 'return Tropic of Cancer, Jerry', '180m', (select interest_group.group_id from interest_group where group_name = 'MoviePhone')), 
 ('the league of ex-girlfriends', 'Annual gathering of the women Jerry has wronged', '1060m', (select interest_group.group_id from interest_group where group_name = 'the league of ex-girlfriends'));
 
-INSERT INTO interest_group_member(group_id, member_id)
+INSERT INTO interest_group_member(member_id, group_id)
 values((SELECT member.member_id from member where first_name = 'George'),(select interest_group.group_id from interest_group where group_name = 'The Van Buren Boys'));
 
-INSERT INTO interest_group_member(group_id, member_id)
+INSERT INTO interest_group_member(member_id, group_id)
 values((SELECT member.member_id from member where first_name = 'Joe'),(select interest_group.group_id from interest_group where group_name = 'the library inspectors'));
 
-INSERT INTO interest_group_member(group_id, member_id)
+INSERT INTO interest_group_member(member_id, group_id)
 values((SELECT member.member_id from member where first_name = 'Cosmo'),(select interest_group.group_id from interest_group where group_name = 'MoviePhone'));
 
-INSERT INTO interest_group_member(group_id, member_id)
+INSERT INTO interest_group_member(member_id, group_id)
 values((SELECT member.member_id from member where first_name = 'Elaine'),(select interest_group.group_id from interest_group where group_name = 'the league of ex-girlfriends'));
 
 
@@ -90,12 +90,8 @@ INSERT INTO event_member(member_id, event_id)
 VALUES((SELECT member.member_id from member where first_name like 'Jerry'), (select event.event_number_id from event where event_name like 'Return Your book day'));
 
 INSERT INTO event_member(member_id, event_id)
-VALUES((SELECT member.member_id from member where first_name like 'Elaine'), (select event.event_number_id from event where event_name like 'Annual gathering of the women Jerry has wronged'));
+VALUES((SELECT member.member_id from member where first_name like 'Elaine'), (select event.event_number_id from event where event_name like 'the league of ex-girlfriends'));
+                                                                                                                                            
 
-
---COMMIT;
-
-
---ROLLBACK;
-
+commit;
 
