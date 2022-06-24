@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JdbcParkDaoTests extends BaseDaoTests {
 
@@ -25,17 +27,41 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     @Test
     public void getPark_returns_correct_park_for_id() {
-        Assert.fail();
+        //Arrange handled via spring black magic
+
+
+    //Act
+        Park park1Actual = sut.getPark(1);
+
+      //Assert
+      Assert.assertEquals("Park IDs Differ", PARK_1.getParkId(), park1Actual.getParkId());
+        assertParksMatch(PARK_1, park1Actual);
     }
 
     @Test
     public void getPark_returns_null_when_id_not_found() {
-        Assert.fail();
+        //Arrange - already done
+        //Act
+        Park parkActual =  sut.getPark(0);
+
+        //Assert
+        Assert.assertNull("Didn't get null when ID not found", parkActual);
+
+
     }
 
     @Test
     public void getParksByState_returns_all_parks_for_state() {
-        Assert.fail();
+        //Arrange
+        List<Park> expected = new ArrayList<>();
+        expected.add(PARK_1);
+        expected.add(PARK_3);
+        //Act
+        List<Park> actual = sut.getParksByState("AA");
+
+        //Assert
+        for
+
     }
 
     @Test
@@ -74,11 +100,11 @@ public class JdbcParkDaoTests extends BaseDaoTests {
     }
 
     private void assertParksMatch(Park expected, Park actual) {
-        Assert.assertEquals(expected.getParkId(), actual.getParkId());
-        Assert.assertEquals(expected.getParkName(), actual.getParkName());
-        Assert.assertEquals(expected.getDateEstablished(), actual.getDateEstablished());
-        Assert.assertEquals(expected.getArea(), actual.getArea(), 0.1);
-        Assert.assertEquals(expected.getHasCamping(), actual.getHasCamping());
+        Assert.assertEquals("Park IDs Differ", expected.getParkId(), actual.getParkId());
+        Assert.assertEquals("Park Names Differ", expected.getParkName(), actual.getParkName());
+        Assert.assertEquals("Dates established Differ", expected.getDateEstablished(), actual.getDateEstablished());
+        Assert.assertEquals("Areas Differ", expected.getArea(), actual.getArea(), 0.1);
+        Assert.assertEquals("Has campings differ", expected.getHasCamping(), actual.getHasCamping());
     }
 
 }
