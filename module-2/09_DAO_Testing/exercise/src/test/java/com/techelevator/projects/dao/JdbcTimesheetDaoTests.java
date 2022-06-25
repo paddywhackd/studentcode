@@ -5,8 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Time;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.*;
+
 
 public class JdbcTimesheetDaoTests extends BaseDaoTests {
 
@@ -18,9 +23,9 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
             LocalDate.parse("2021-01-01"), 0.25, true, "Timesheet 3");
     private static final Timesheet TIMESHEET_4 = new Timesheet(4, 2, 2,
             LocalDate.parse("2021-02-01"), 2.0, false, "Timesheet 4");
-    
-    private JdbcTimesheetDao sut;
 
+    private JdbcTimesheetDao sut;
+    private Timesheet testTimesheet;
 
     @Before
     public void setup() {
@@ -29,47 +34,89 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
 
     @Test
     public void getTimesheet_returns_correct_timesheet_for_id() {
-        Assert.fail();
+        Timesheet timesheetActual = sut.getTimesheet(1);
+        assertTimesheetsMatch(TIMESHEET_1, timesheetActual);
     }
 
     @Test
     public void getTimesheet_returns_null_when_id_not_found() {
-        Assert.fail();
+        Timesheet timesheetNUll = sut.getTimesheet(5);
+        Assert.assertNull("Didn't get NUll when ID not found", timesheetNUll);
+
     }
 
     @Test
     public void getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee() {
-        Assert.fail();
+        List<Timesheet> expected = new ArrayList<>();
+        expected.add(TIMESHEET_1);
+        expected.add(TIMESHEET_2);
+
+        List<Timesheet> actual = sut.getTimesheetsByEmployeeId(1);
+        Assert.assertEquals("List differs", expected.size(), actual.size());
+        Assert.assertEquals("List differs", expected.size(), actual.size());
     }
 
     @Test
     public void getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project() {
-        Assert.fail();
+        List<Timesheet> expected = new ArrayList<>();
+        expected.add(TIMESHEET_1);
+        expected.add(TIMESHEET_4);
+
+        List<Timesheet> actual = sut.getTimesheetsByEmployeeId(2);
+        Assert.assertEquals("List differs", expected.size(), actual.size());
+        Assert.assertEquals("List Differs", expected.size(), actual.size());
     }
 
     @Test
     public void createTimesheet_returns_timesheet_with_id_and_expected_values() {
-        Assert.fail();
+        Timesheet expected = new Timesheet(1, 1, 1, LocalDate.now(), 1, true, "Timesheet 1");
+
+        Timesheet actual = sut.createTimesheet(expected);
+
+        Assert.assertEquals("Didn't get expected timesheet id", 1, actual.getTimesheetId());
+        expected.setTimesheetId(1);
+        assertTimesheetsMatch(expected, actual);
     }
 
     @Test
     public void created_timesheet_has_expected_values_when_retrieved() {
-        Assert.fail();
+        Timesheet createdTimesheet = sut.createTimesheet(testTimesheet);
+
+        Integer newId = createdTimesheet.getTimesheetId();
+        Timesheet retrieveTimesheet = sut.getTimesheet(newId);
+
+        assertTimesheetsMatch(createdTimesheet, retrieveTimesheet);
     }
 
     @Test
     public void updated_timesheet_has_expected_values_when_retrieved() {
-        Assert.fail();
+        Timesheet timesheetToUpdate = sut.getTimesheet(1);
+
+        timesheetToUpdate.setTimesheetId(1);
+        timesheetToUpdate.setBillable(true);
+
+        sut.updateTimesheet(timesheetToUpdate);
+
+        Timesheet retrievedTimesheet = sut.getTimesheet(1);
+        assertTimesheetsMatch(timesheetToUpdate, retrievedTimesheet);
     }
 
     @Test
     public void deleted_timesheet_cant_be_retrieved() {
-        Assert.fail();
+        sut.deleteTimesheet(4);
+
+        Timesheet retrievedTimesheet = sut.getTimesheet(4);
+        Assert.assertNull(retrievedTimesheet);
+
+        List<Timesheet> cities = sut.getTimesheetsByEmployeeId(2);
+       // Assert.assertEquals(1, cities.size());
+     //   assertCitiesMatch(CITY_1, cities.get(0));
     }
 
     @Test
     public void getBillableHours_returns_correct_total() {
-        Assert.fail();
+        Timesheet timesheet = sut.getTimesheet(1);
+        assertTimesheetsMatch(TIMESHEET_1, timesheet);
     }
 
     private void assertTimesheetsMatch(Timesheet expected, Timesheet actual) {
@@ -81,5 +128,6 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
         Assert.assertEquals(expected.isBillable(), actual.isBillable());
         Assert.assertEquals(expected.getDescription(), actual.getDescription());
     }
+
 
 }

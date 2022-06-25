@@ -7,6 +7,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.*;
+
 
 public class JdbcTimesheetDao implements TimesheetDao {
 
@@ -23,7 +26,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
                      "FROM timesheet " +
                      "WHERE timesheet_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, timesheetId);
-        if (results.next()) {
+        while (results.next()) {
             timesheet = mapRowToTimesheet(results);
         }
         return timesheet;
@@ -37,7 +40,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
                      "WHERE employee_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId);
-        if (results.next()) {
+        while (results.next()) {
             Timesheet timesheet = mapRowToTimesheet(results);
             timesheets.add(timesheet);
         }
@@ -49,7 +52,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         List<Timesheet> timesheets = new ArrayList<>();
         String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
                      "FROM timesheet " +
-                     "WHERE employee_id = ? " +
+                     "WHERE project_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
         while (results.next()) {
@@ -108,5 +111,18 @@ public class JdbcTimesheetDao implements TimesheetDao {
         timesheet.setBillable(results.getBoolean("billable"));
         timesheet.setDescription(results.getString("description"));
         return timesheet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JdbcTimesheetDao that = (JdbcTimesheetDao) o;
+        return Objects.equals(jdbcTemplate, that.jdbcTemplate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(jdbcTemplate);
     }
 }

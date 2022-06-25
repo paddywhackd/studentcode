@@ -1,13 +1,13 @@
 Bug 1
 -----
 Test that demonstrates problem:
-
+get time sheet by employee id returns list of all timesheets for employee
 Expected output:
 
 Actual output:
 
 How did you fix this bug?
-
+replaced an if statement  with a while loop statement so that the code would iterate through the entire list
 
 Bug 2
 -----
