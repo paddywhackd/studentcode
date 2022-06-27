@@ -12,13 +12,13 @@ replaced an if statement  with a while loop statement so that the code would ite
 Bug 2
 -----
 Test that demonstrates problem:
-
+update_timesheet
 Expected output:
 
 Actual output:
 
 How did you fix this bug?
-
+added "billable" and a wildcard to the values to be inserted.
 
 Bug 3
 -----

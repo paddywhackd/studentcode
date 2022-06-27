@@ -25,7 +25,7 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
             LocalDate.parse("2021-02-01"), 2.0, false, "Timesheet 4");
 
     private JdbcTimesheetDao sut;
-    private Timesheet testTimesheet;
+    private Timesheet testTimesheet = new Timesheet(5, 2, 1, LocalDate.now(), 2.00, true, "timesheet returns correct values");
 
     @Before
     public void setup() {
@@ -69,13 +69,20 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
 
     @Test
     public void createTimesheet_returns_timesheet_with_id_and_expected_values() {
-        Timesheet expected = new Timesheet(1, 1, 1, LocalDate.now(), 1, true, "Timesheet 1");
+//        Timesheet expected = new Timesheet(1, 1, 1, LocalDate.now(), 1, true, "Timesheet 1");
+//
+//        Timesheet actual = sut.createTimesheet(expected);
+//
+//        Assert.assertEquals("Didn't get expected timesheet id", 1, actual.getTimesheetId());
+//        expected.setTimesheetId(1);
+//        assertTimesheetsMatch(expected, actual);
+        Timesheet createdTimesheet = sut.createTimesheet(testTimesheet);
 
-        Timesheet actual = sut.createTimesheet(expected);
+        Integer newId = createdTimesheet.getTimesheetId();
+        Timesheet retrieveTimesheet = sut.getTimesheet(newId);
 
-        Assert.assertEquals("Didn't get expected timesheet id", 1, actual.getTimesheetId());
-        expected.setTimesheetId(1);
-        assertTimesheetsMatch(expected, actual);
+        assertTimesheetsMatch(createdTimesheet, retrieveTimesheet);
+
     }
 
     @Test
@@ -109,14 +116,16 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
         Assert.assertNull(retrievedTimesheet);
 
         List<Timesheet> cities = sut.getTimesheetsByEmployeeId(2);
-       // Assert.assertEquals(1, cities.size());
-     //   assertCitiesMatch(CITY_1, cities.get(0));
     }
 
     @Test
     public void getBillableHours_returns_correct_total() {
-        Timesheet timesheet = sut.getTimesheet(1);
-        assertTimesheetsMatch(TIMESHEET_1, timesheet);
+        double total = sut.getBillableHours(2, 2);
+        double expected = 0;
+
+        Assert.assertEquals(expected, total, 0.001);
+
+
     }
 
     private void assertTimesheetsMatch(Timesheet expected, Timesheet actual) {
