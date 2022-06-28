@@ -19,13 +19,17 @@ public class App {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection();
             if (menuSelection == 1) {
-                handleListAllAuctions();
+                Auction[] auctions = auctionService.getAllAuctions();
+                consoleService.printAuctions(auctions);
             } else if (menuSelection == 2) {
-                handleShowAuctionDetails();
+                Auction auction = auctionService.getAuction(1);
+                consoleService.printAuction(auction);
             } else if (menuSelection == 3) {
-                handleFindAuctionsByTitle();
+                Auction[] auctions = auctionService.getAuctionsMatchingTitle("watch");
+                consoleService.printAuctions(auctions);
             } else if (menuSelection == 4) {
-                handleFindAuctionsByPrice();
+                Auction[] auctions = auctionService.getAuctionsAtOrBelowPrice(150);
+                consoleService.printAuctions(auctions);
             } else if (menuSelection != 0) {
                 System.out.println("Invalid Selection");
             }
