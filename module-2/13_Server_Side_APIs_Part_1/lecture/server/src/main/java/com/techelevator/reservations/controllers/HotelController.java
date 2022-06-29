@@ -5,10 +5,12 @@ import com.techelevator.reservations.dao.MemoryHotelDao;
 import com.techelevator.reservations.dao.MemoryReservationDao;
 import com.techelevator.reservations.dao.ReservationDao;
 import com.techelevator.reservations.model.Hotel;
+import com.techelevator.reservations.model.Reservation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class HotelController {
 
     private HotelDao hotelDao;
@@ -25,8 +27,8 @@ public class HotelController {
      * @return a list of all hotels in the system
      */
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
-    public List<Hotel> list() {
-        return hotelDao.list();
+    public List<Hotel> list(@RequestParam(required = false) String cityName, @RequestParam(required = false) String stateName) {
+        return hotelDao.list(cityName, stateName);
     }
 
     /**
@@ -40,4 +42,18 @@ public class HotelController {
         return hotelDao.get(id);
     }
 
+
+    @RequestMapping(path = "/reservations", method = RequestMethod.GET)
+    public List<Reservation> getReservations() {
+        return reservationDao.findAll();
+    }
+
+    @RequestMapping(path = "/reservations/{hotelId}/reservations", method = RequestMethod.GET)
+    public List<Reservation> getReservationsForId(@PathVariable int hotelID) {
+        return reservationDao.findByHotel(hotelID);
+    }
+
+
+
 }
+
