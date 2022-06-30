@@ -53,6 +53,11 @@ public class HotelController {
         return reservationDao.findByHotel(hotelID);
     }
 
+    @RequestMapping(path = "/reservations", method = RequestMethod.POST)
+    public Reservation addReservation(@RequestBody Reservation reservation) {
+        return reservationDao.create(reservation, reservation.getHotelID());
+    }
+
 
 
 }
