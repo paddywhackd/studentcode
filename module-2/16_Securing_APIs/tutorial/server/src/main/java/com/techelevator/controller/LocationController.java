@@ -1,43 +1,42 @@
-package com.techelevator.locations.controllers;
+package com.techelevator.controller;
 
-import com.techelevator.locations.dao.LocationDao;
-import com.techelevator.locations.exception.LocationNotFoundException;
-import com.techelevator.locations.model.Location;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import com.techelevator.dao.LocationDao;
+import com.techelevator.dao.MemoryLocationDao;
+import com.techelevator.exception.LocationNotFoundException;
+import com.techelevator.model.Location;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/locations")
+@PreAuthorize("isAuthenticated()")
 public class LocationController {
 
     private LocationDao dao;
 
-    public LocationController(LocationDao dao) {
-        this.dao = dao;
+    public LocationController() {
+        dao = new MemoryLocationDao();
     }
 
-    @ApiOperation("Returns all of the Locations in the system")
-    //@RequestMapping(path = "", method = RequestMethod.GET)
-    @GetMapping
+    @RequestMapping(path = "", method = RequestMethod.GET)
     public List<Location> list() {
         return dao.list();
     }
 
-    @ApiOperation("Returns the Location with the given ID")
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Location get(@PathVariable @ApiParam("ID of the Location to retrieve") int id) throws LocationNotFoundException {
+    public Location get(@PathVariable int id) throws LocationNotFoundException {
         return dao.get(id);
     }
 
-    @ApiOperation("Adds a new Location to the system")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Location add(@Valid @RequestBody @ApiParam("The Location to add") Location location) {
+    public Location add(@Valid @RequestBody Location location, Principal principal) {
+        System.out.println(principal.getName());
         return dao.create(location);
     }
 
