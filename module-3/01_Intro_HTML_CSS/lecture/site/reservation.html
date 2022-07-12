@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>B1ts & Bytes</h1>
+        <p><strong>Best Bistro on the Internet!</strong></p>
+    </header>
+    <main>
+        <h2>Reservation Form </h2>
+        <a href="index.html"> back to menu</a>
+        <form action="api/reservations" method="post">
+            <div>
+                <label for="reservationname">guest name</label>
+                <input id="reservationname" name="guestname" type="text" placeholder="John Doe">
+            </div>
+            <div>
+                <label for="reservationdate">when</label>
+                <input type="datetime-local" name="datetime" id="reservationdate">
+            </div>
+            <div>
+                <label for="reservationcount">number of guests</label>
+                <input type="number" min="1" max="12" name="count" id="reservationcount">
+            </div>
+            <div>
+                <label for="isspecial">Special</label>
+                <input type="checkbox" name="special" id="isspecial">
+            </div>
+            <button type="submit">make reservation</button>
+            <button type="reset">clear form</button>
+        </form>
+    </main>
+</body>
+
+</html>

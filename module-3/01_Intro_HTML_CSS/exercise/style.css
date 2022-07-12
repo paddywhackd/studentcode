@@ -1,0 +1,26 @@
+body {
+    background-color: aqua;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-align: center;
+    }
+
+img {
+    height: 400px;
+    margin: auto;
+    display: block;
+}
+h2{
+    text-decoration: underline;
+}
+td {
+    text-align: center;
+}
+table.center {
+    margin:auto;
+}
+p {
+    font-weight: bolder;
+}
+blockquote {
+    font-style: italic;
+}
