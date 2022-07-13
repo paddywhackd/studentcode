@@ -15,3 +15,58 @@ ul {
   margin: 0;
   padding: 0;
 }
+aside{
+  position: fixed;
+  border-right: 1px solid rgba(0, 173, 238, 0.4);
+  width: 200px;
+  height: 100%;
+
+  
+}
+aside > img{
+  height: 120px;
+  margin:auto;
+  display: block;
+}
+main {
+  margin-left: 200px;
+  padding: 20px;
+}
+li {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+
+}
+li > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #00ADEE;
+}
+li:first-child a{
+text-decoration: underline;
+}
+.banner{
+  width: 100%;
+}
+
+main > header > img {
+  height: 100px;
+  padding: 5px;
+}
+div{
+  display: inline-block;
+  width: 33%;
+  border: 1px solid rgba(170, 239, 135, 0.8);
+  padding: 5px
+}
+h2 {
+  color: #8CC36F;
+}
+i {
+  padding: 5px;
+  margin: 5px;
+}

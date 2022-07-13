@@ -1,0 +1,17 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+div{
+    display: block;
+    outline: dashed rgb(63, 97, 192);
+}
+span {
+    background-color: crimson;
+    width: 100px;
+    height: 100px;
+    display: block;
+    display: inline-block; /*doesnt allow width and height */
+    outline: dashed greenyellow;
+
+}
