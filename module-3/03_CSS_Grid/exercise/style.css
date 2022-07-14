@@ -50,3 +50,110 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+#headline{
+grid-area:headline;
+}
+#student-picture{
+grid-area: student-pic;
+justify-self: center;
+text-align: center;
+}
+#student-quote{
+grid-area: quote;
+}
+#student-profile{
+grid-area: profile;
+}
+#student-contact{
+grid-area: contact;
+text-align: center;
+justify-self: center;
+}
+#experience-grid{
+grid-area: exp-grid;
+}
+#experience-code{
+grid-area: exp-code;
+}
+#experience-database{
+grid-area: exp-database;
+}
+#experience-web{
+grid-area: exp-web;
+}
+#experience-design{
+grid-area: exp-design;
+}
+#main-grid{
+    display: grid;
+    grid-template-areas: 
+    "headline headline student-pic"
+    "quote    quote    student-pic"
+    "profile  profile  contact"
+    "exp-grid exp-grid exp-grid";
+    row-gap: 20px;
+    column-gap: 50px;
+    align-items: center;
+    grid-template-columns: 33% 33% 33%;
+    
+}
+#experience-grid{
+    display: grid;
+    grid-template-areas:
+    "exp-code exp-code"
+    "exp-database exp-database"
+    "exp-web  exp-design";
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-columns: 50% 50%
+
+}
+@media screen and (max-width: 1024px) {
+    #main-grid {
+        display: grid;
+        grid-template-areas: 
+        "headline headline"
+        "quote    student-pic"
+        "quote    contact"
+        "profile  profile"
+        "exp-grid  exp-grid";
+        row-gap: 20px;
+        column-gap: 35px;
+        grid-template-columns: 50% 50%;
+
+    }
+    #experience-grid{
+        display: grid;
+        grid-template-areas:
+        "exp-code exp-web" 
+        "exp-database exp-design";
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 50% 50%
+}
+@media screen and (max-width: 450px) {
+    #main-grid {
+        display: grid;
+        grid-template-areas: 
+        "headline"
+        "student-pic"
+        "contact"
+        "quote"    
+        "profile"
+        "exp-grid";
+       
+    }
+    #experience-grid{
+        display: grid;
+        grid-template-areas:
+        "exp-code" 
+        "exp-web" 
+        "exp-database"
+        "exp-design";
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 50% 50%
+    }
+    }
+}
