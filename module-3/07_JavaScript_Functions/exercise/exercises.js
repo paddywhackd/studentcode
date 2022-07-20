@@ -20,6 +20,16 @@
  * @returns {boolean} true if they are admitted
  */
 
+function isAdmitted(gpa, satScore, recommendation) {
+    if (gpa > 4.0 || satScore > 1300) {
+        return true;
+    } if (gpa > 3.0 && recommendation || satScore > 1200 && recommendation) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
  * function and uses that in the `unfilteredArray` filter function. Return the result.
@@ -28,6 +38,9 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+function useParameterToFilterArray(filterFunction) {
+    return unfilteredArray.filter(filterFunction);
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -41,7 +54,9 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
-
+function makeNumber(string1, string2) {
+    return parseInt(string1 + string2);
+}
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds all of them together. Return the sum.
@@ -50,11 +65,21 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
+function addAll(...num) {
+    return num.reduce((acc, num) => acc += num, 0);
+}
+
+// let number = num.reduce((a, b) => a + b, 0)
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+function makeHappy(stringArray) {
+    return stringArray.map((string) => "Happy " + string);
+}
+
 
 /*
  * Write and document a function called getFullAddressesOfProperties
@@ -74,15 +99,15 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * Use `map` and an anonymous function.
  */
 
-/** 
+/**
  * Write and document a function called findLargest that uses `forEach`
  * to find the largest element in an array.
  * The function must work for strings and numbers.
- * 
+ *
  * For strings, "largest" means the word coming last in lexographical order.
- * Lexographic is similar to alphabetical order except that 
- * capital letters come before lowercase letters: 
- * 
+ * Lexographic is similar to alphabetical order except that
+ * capital letters come before lowercase letters:
+ *
  * "cat" < "dog" but "Dog" < "cat"
  *
  * @param {number[]|string[]} searchArray the array to search
