@@ -59,25 +59,54 @@ function displayReview(review) {
 
 // LECTURE STARTS HERE ---------------------------------------------------------------
 
-// Set the product reviews page title.
-setPageTitle();
-// Set the product reviews page description.
-setPageDescription();
-// Display all of the product reviews on our page.
-displayReviews();
 
+
+
+
+
+function setupDescriptionEdit() {
+    document.addEventListener('DOMcontentloaded', e => {
+        console.log('Loading...');
+
+        // Set the product reviews page title.
+        setPageTitle();
+        // Set the product reviews page description.
+        setPageDescription();
+        // Display all of the product reviews on our page.
+        displayReviews();
+
+        const desc = document.querySelector('.description');
+        desc.addEventListener('click', e => {
+            toggleDescriptionEdit(e.target);
+        });
+
+        const inputDesc = document.getElementById('inputDesc');
+        inputDesc.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                exitDescriptionEdit(e.target, true);
+            }
+            if (e.key === 'Escape') {
+                exitDescriptionEdit(e.target, false);
+            }
+
+            inputDesc.addEventListener('mouseleave', e => {
+                exitDescriptionEdit(e.target, false);
+
+            });
+        });
+    }
 /**
  * Hide the description and show the text box.
  *
  * @param {Element} desc the element containing the description
  */
 function toggleDescriptionEdit(desc) {
-    const textBox = desc.nextElementSibling;
-    textBox.value = description;
-    textBox.classList.remove('d-none');
-    desc.classList.add('d-none');
-    textBox.focus();
-}
+            const textBox = desc.nextElementSibling;
+            textBox.value = description;
+            textBox.classList.remove('d-none');
+            desc.classList.add('d-none');
+            textBox.focus();
+        }
 
 /**
  * Hide the text box and show the description.
@@ -87,45 +116,45 @@ function toggleDescriptionEdit(desc) {
  * @param {Boolean} save should we save the description text
  */
 function exitDescriptionEdit(textBox, save) {
-    let desc = textBox.previousElementSibling;
-    if (save) {
-        description = textBox.value;
-        desc.innerText = textBox.value;
-    }
-    textBox.classList.add('d-none');
-    desc.classList.remove('d-none');
-}
+            let desc = textBox.previousElementSibling;
+            if (save) {
+                description = textBox.value;
+                desc.innerText = textBox.value;
+            }
+            textBox.classList.add('d-none');
+            desc.classList.remove('d-none');
+        }
 
 /**
  * Toggle visibility of the add review form.
  */
 function showHideForm() {
-    const form = document.querySelector('form');
-    const btn = document.getElementById('btnToggleForm');
+            const form = document.querySelector('form');
+            const btn = document.getElementById('btnToggleForm');
 
-    if (form.classList.contains('d-none')) {
-        form.classList.remove('d-none');
-        btn.innerText = 'Hide Form';
-        document.getElementById('name').focus();
-    } else {
-        resetFormValues();
-        form.classList.add('d-none');
-        btn.innerText = 'Add Review';
-    }
-}
+            if (form.classList.contains('d-none')) {
+                form.classList.remove('d-none');
+                btn.innerText = 'Hide Form';
+                document.getElementById('name').focus();
+            } else {
+                resetFormValues();
+                form.classList.add('d-none');
+                btn.innerText = 'Add Review';
+            }
+        }
 
 /**
  * Reset all of the values in the form.
  */
 function resetFormValues() {
-    const form = document.querySelector('form');
-    const inputs = form.querySelectorAll('input');
-    inputs.forEach((input) => {
-        input.value = '';
-    });
-    document.getElementById('rating').value = 1;
-    document.getElementById('review').value = '';
-}
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input');
+            inputs.forEach((input) => {
+                input.value = '';
+            });
+            document.getElementById('rating').value = 1;
+            document.getElementById('review').value = '';
+        }
 
 /**
  * Save the review that was added using the add review form.
