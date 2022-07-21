@@ -99,6 +99,12 @@ function makeHappy(stringArray) {
  * Use `map` and an anonymous function.
  */
 
+function getFullAddressesOfProperties(array) {
+    let strings = array.map(v => v.streetNumber + " " + v.streetName + " " + v.streetType + " " + v.city + " " + v.state + " " + v.zip)
+    return strings;
+}
+
+
 /**
  * Write and document a function called findLargest that uses `forEach`
  * to find the largest element in an array.
