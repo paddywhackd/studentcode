@@ -72,7 +72,7 @@ function clear() {
 }
 
 // add event listener for when the DOM is loaded
-document.addEventListener('DOMContenLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // set the variable called display equal to the display element
   // HINT: use its id #display to get a reference to it
@@ -85,8 +85,9 @@ document.addEventListener('DOMContenLoaded', () => {
   numbers.forEach((number) => {
     number.addEventListener('click', (event) => {
       clickNumber(event);
-    });
+    })
   })
+
 
 
   // get a reference to the decimal point button
@@ -95,7 +96,7 @@ document.addEventListener('DOMContenLoaded', () => {
   const decimal = document.querySelector('.decimal')
   decimal.addEventListener('click', (event) => {
     clickNumber(event);
-  });
+  })
 
   // get a reference to the all clear button
   // add a click event listener to call the function clear  
@@ -111,7 +112,7 @@ document.addEventListener('DOMContenLoaded', () => {
   operators.forEach((op) => {
     op.addEventListener('click', (event) => {
       clickOperator(event);
-    });
+    })
   })
   // add click event listener for the equal sign
   // should call the function performOperation
@@ -119,6 +120,4 @@ document.addEventListener('DOMContenLoaded', () => {
   equals.addEventListener('click', (event) => {
     performOperation(event);
   })
-
 });
-

@@ -36,3 +36,37 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+  const names = document.querySelectorAll('li');
+  names.forEach((name) => {
+    name.addEventListener('click', () => {
+      if (!name.classList.contains('completed')) {
+        name.classList.add('completed');
+      }
+    });
+    // when you double click a task remove the completed class
+    name.addEventListener('dblclick', () => {
+      if (name.classList.contains('completed')) {
+        name.classList.remove('completed');
+      }
+    });
+  });
+  button = document.querySelector('.btn')
+  const allItems = document.querySelectorAll('li');
+  button.addEventListener('click', () => {
+    if (allItemsIncomplete) {
+      allItemsIncomplete = false;
+      allItems.forEach((name) => { name.classList.add('completed') });
+      button.innerText = "Mark All Incomplete";
+    }
+    else {
+      allItemsIncomplete = true;
+      allItems.forEach((name) => { name.classList.remove('completed') });
+      button.innerText = "Mark All Complete";
+    }
+  })
+
+})
