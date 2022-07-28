@@ -10,8 +10,8 @@ import UserList from "./components/UserList.vue";
 export default {
   name: "app",
   components: {
-    UserList
-  }
+    UserList,
+  },
 };
 </script>
 
