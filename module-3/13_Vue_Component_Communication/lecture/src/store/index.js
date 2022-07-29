@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     name: 'Cigar Parties for Dummies',
     description: 'Host and plan the perfect cigar party for all of your squirrelly friends.',
-    filter: 0,
+    filter: 0, //filter reviews to this rating
     reviews: [
       {
         reviewer: 'Malcolm Gladwell',
@@ -51,7 +51,7 @@ export default new Vuex.Store({
       state.filter = filter;
     },
     FLIP_FAVORITED(state, reviewToChange) {
-      reviewToChange.favorited = ! reviewToChange.favorited;
+      reviewToChange.favorited = !reviewToChange.favorited;
     }
   },
   actions: {
