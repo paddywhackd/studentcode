@@ -48,7 +48,13 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input
+              type="checkbox"
+              v-bind:id="user.id"
+              v-on:change="selectUser($event)"
+              v-bind:value="user.id"
+              v-bind:checked="selectedUserIDs.includes(user.id)"
+            />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -65,9 +71,24 @@
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+      <button
+        v-on:click="enableSelectedUsers()"
+        v-bind:disabled="actionButtonDisabled"
+      >
+        Enable Users
+      </button>
+      <button
+        v-on:click="disableSelectedUsers()"
+        v-bind:disabled="actionButtonDisabled"
+      >
+        Disable Users
+      </button>
+      <button
+        v-on:click="deleteSelectedUsers()"
+        v-bind:disabled="actionButtonDisabled"
+      >
+        Delete Users
+      </button>
     </div>
 
     <button v-on:click.prevent="showForm = !showForm">Add New User</button>
@@ -107,7 +128,7 @@ export default {
         lastName: "",
         username: "",
         emailAddress: "",
-        status: "",
+        status: "Active",
       },
       newUser: {
         id: null,
@@ -188,6 +209,12 @@ export default {
           foundUser.status = "Active";
         }
       });
+    },
+    disableSelectedUsers() {
+      this.selectedUserIDs.forEach((id) => {
+        this.users[this.findUserById(id)].status = "Disabled";
+      });
+      this.clearSelectedUsers();
     },
   },
   computed: {
