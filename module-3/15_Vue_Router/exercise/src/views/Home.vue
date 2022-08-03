@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BestsellerList from "@/components/BestsellerList";
+import BestsellerList from "@/components/BestSellerList";
 import NewReleasesList from "@/components/NewReleasesList";
 export default {
   components: {
